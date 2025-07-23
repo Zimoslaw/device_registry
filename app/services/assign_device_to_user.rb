@@ -47,6 +47,7 @@ class AssignDeviceToUser
     device = Device.find_or_create_by!(serial_number: @serial_number)
 
     # Assign device to user
+    # active param tells if user-device relation is active (device is assigned to user) or unactive (device has been returned)
     UserDevice.create!(user_id: @new_device_owner_id, device: device, active: true)
 
   end
